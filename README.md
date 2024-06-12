@@ -12,11 +12,11 @@ For this project i used the following:
 
 ## Notes
 
-- Add a CITIES environment variable in the .env file to define cities that you like and separating them with a comma (example: CITIES=Tokyo,Yokohama,Kyoto,Osaka,Sapporo,Nagoya)
+- Add a CITIES environment variable in the .env file to define cities that you like and separating them with a comma (example: CITIES=Tokyo,Yokohama,Kyoto,Osaka,Sapporo,Nagoya). You can add other cities or destinations as well.
 - Add your OpenWeather API key in the .env file (OPENWEATHER_API_KEY=xxx)
 - Add your FourSquare API key in the .env file (FOURSQUARE_API_KEY=xxx)
 
 My UI/UX design is simple and straightforward. My code is also easy to understand.
 
-That's why I think it's the best design for the Weather App project. Thank you.
+That's why I think it's the best design for the Weather App project. Thank you :)
 
