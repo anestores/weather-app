@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/getweatherdata', [App\Http\Controllers\HomeController::class, 'getWeatherData']);
+Route::get('/getweatherforecast/{city}', [App\Http\Controllers\HomeController::class, 'getWeatherForecast']);
 
 Route::get('/placessearch', [App\Http\Controllers\PlaceSearchController::class, 'index']);

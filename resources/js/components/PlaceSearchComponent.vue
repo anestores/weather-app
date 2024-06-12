@@ -45,7 +45,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -59,18 +58,7 @@
                     <div class="card-body">
                         <ul>
                             <li v-for="placeResult in placesResult" :key="placeResult.fsq_id">
-                                <div class="row">
-                                    <div class="row-with-underline">
-                                        <h5>{{ placeResult.name }}</h5>
-                                        <h6>{{ placeResult.location.formatted_address }}</h6>
-                                        <ul>
-                                            <li v-for="category in placeResult.categories" :key="category.id">
-                                                <img :src="category.icon.prefix + 'bg_32' + category.icon.suffix" :alt="category.name"/>
-                                                {{ category.name }}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <PlaceSearchResultComponent :childKey="placeResult.fsq_id" :placeResult="placeResult"/>
                             </li>
                         </ul>
                     </div>
@@ -81,6 +69,9 @@
 </template>
 
 <script>
+
+import PlaceSearchResultComponent from "./PlaceSearchResultComponent";
+
 export default {
     props: ['cities', 'foursquare_api_key'],
     data() {
@@ -90,6 +81,9 @@ export default {
             searchText: '',
             errors: [],
         }
+    },
+    components: {
+        PlaceSearchResultComponent
     },
     methods: {
         initForm() {
@@ -152,11 +146,4 @@ img {
     margin-right: 5px;
     color: skyblue;
 }
-
-.card-body .row .row-with-underline {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
 </style>

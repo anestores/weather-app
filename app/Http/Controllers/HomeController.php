@@ -11,8 +11,9 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $todayInWords = Carbon::now('GMT+9')->isoFormat('dddd, MMMM D YYYY h:mmA');
-
+        return view('home');
+    }
+    public function getWeatherData() {
         $cities = explode(',', env('CITIES', ''));
 
         $weather = new OpenWeather();
@@ -21,13 +22,25 @@ class HomeController extends Controller
 
         foreach($cities as $city) {
             $current = $weather->getCurrentWeatherByCityName($city, 'metric');
-            $forecast = $weather->getForecastWeatherByCityName($city, 'metric');
+//            $forecast = $weather->getForecastWeatherByCityName($city, 'metric');
             $data[] = [
                 'current' => $current,
-                'forecast' => $forecast
+//                'forecast' => $forecast
             ];
         }
+        return response()->json(['data' => $data],
+            200);
+    }
+    public function getWeatherForecast($city) {
+        $cities = explode(',', env('CITIES', ''));
 
-        return view('home', compact('data', 'todayInWords'));
+        $cityName = $cities[$city];
+
+        $data = [];
+        $weather = new OpenWeather();
+        $forecast = $weather->getForecastWeatherByCityName($cityName, 'metric');
+        $data[] = ['forecast' => $forecast];
+
+        return view('weatherforecastbycity', compact('cityName', 'data'));
     }
 }

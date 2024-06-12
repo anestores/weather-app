@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Places Search')
+@section('title', 'Weather App')
 
 @section('content')
     <div id="app">

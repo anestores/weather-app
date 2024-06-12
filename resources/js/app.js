@@ -22,6 +22,9 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
 Vue.component('placesearch-component', require('./components/PlaceSearchComponent.vue').default);
+Vue.component('weather-by-city-component', require('./components/WeatherByCityComponent.vue').default);
+Vue.component('place-search-result-component', require('./components/PlaceSearchResultComponent.vue').default);
+Vue.component('weather-forecast-by-city-component', require('./components/WeatherForecastByCityComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
